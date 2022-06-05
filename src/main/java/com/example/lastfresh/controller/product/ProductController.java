@@ -28,7 +28,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/categorySort")
-    public void categorySort(String categoryName,CriteriaProduct criteriaProduct,String type, Model model){
+    public void categorySort(String categoryName, CriteriaProduct criteriaProduct, String type, Model model) {
         criteriaProduct = new CriteriaProduct(criteriaProduct.getPageNum(), criteriaProduct.getAmount());
         Long categoryNum = productService.getCategoryNum(categoryName);
         log.info("카테고리솔트 들어옴------------------------------------------------------------------------------------");
@@ -41,7 +41,7 @@ public class ProductController {
         String status2 = null;
         String status3 = "true";
         String check = null;
-        log.info("비교 들어가기전---------"+type);
+        log.info("비교 들어가기전---------" + type);
         log.info(type);
         if (type != null) {
             status3 = null;
@@ -59,15 +59,14 @@ public class ProductController {
             }
         }
 
-        log.info("비교 들어간후---------"+type);
+        log.info("비교 들어간후---------" + type);
         HashMap<String, String> typeList = new HashMap<>();
         typeList.put("status1", status1);
         typeList.put("status2", status2);
         typeList.put("status3", status3);
 
-        log.info("카테고리넘버" +categoryNum + "-----------");
-        log.info("카테고리프로덕트" +criteriaProduct + "-----------");
-
+        log.info("카테고리넘버" + categoryNum + "-----------");
+        log.info("카테고리프로덕트" + criteriaProduct + "-----------");
 
 
         HashMap<String, Object> categoryMap = new HashMap<>();
@@ -77,14 +76,14 @@ public class ProductController {
 
 
         model.addAttribute("check", check);
-        model.addAttribute("categoryName",categoryName);
+        model.addAttribute("categoryName", categoryName);
         model.addAttribute("list", productService.getCategoryList(categoryMap));
         model.addAttribute("ProductPageDTO", new ProductPageDTO(criteriaProduct, productService.getTotalCategory(categoryMap)));
-        model.addAttribute("getTotal",productService.getTotalCategory(categoryMap));
+        model.addAttribute("getTotal", productService.getTotalCategory(categoryMap));
     }
 
     @GetMapping("/proDelivery")
-    public void proDelivery(CriteriaProduct criteriaProduct, String type, Model model)throws Exception {
+    public void proDelivery(CriteriaProduct criteriaProduct, String type, Model model) throws Exception {
         criteriaProduct = new CriteriaProduct(criteriaProduct.getPageNum(), criteriaProduct.getAmount());
 
         log.info("/pos/getList실행");
@@ -133,6 +132,7 @@ public class ProductController {
         model.addAttribute("ProductPageDTO", new ProductPageDTO(criteriaProduct, productService.getDeliveryTotal(criteriaProduct)));
         model.addAttribute("getDeliveryTotal", productService.getDeliveryTotal(criteriaProduct));
     }
+
     //    public void proDelivery(CriteriaProduct criteriaProduct, Model model) {
 //        criteriaProduct = new CriteriaProduct(criteriaProduct.getPageNum(), criteriaProduct.getAmount());
 //        model.addAttribute("deliveryList", productService.getDeliveryList(criteriaProduct));
@@ -140,9 +140,9 @@ public class ProductController {
 //        model.addAttribute("getDeliveryTotal",productService.getDeliveryTotal(criteriaProduct));
 //    }
     @GetMapping("/proAddressList")
-    public void proAddressList(CriteriaProduct criteriaProduct, String type,String sido,String sigungu,String dong, Model model)throws Exception {
+    public void proAddressList(CriteriaProduct criteriaProduct, String type, String sido, String sigungu, String dong, Model model) throws Exception {
         criteriaProduct = new CriteriaProduct(criteriaProduct.getPageNum(), criteriaProduct.getAmount());
-        String sellProductAddress = sido+" "+sigungu+" "+dong;
+        String sellProductAddress = sido + " " + sigungu + " " + dong;
 
         log.info(sellProductAddress);
 
@@ -187,7 +187,7 @@ public class ProductController {
         map.put("type", typeList);
         map.put("sellProductAddress", sellProductAddress);
 
-        log.info("맵 확인-------------------"+String.valueOf(map));
+        log.info("맵 확인-------------------" + String.valueOf(map));
 
 
         model.addAttribute("check", check);
@@ -195,6 +195,7 @@ public class ProductController {
         model.addAttribute("ProductPageDTO", new ProductPageDTO(criteriaProduct, productService.getTotalAddressCategory(map)));
         model.addAttribute("getTotalAddressCategory", productService.getTotalAddressCategory(map));
     }
+
     //    public void proDelivery(CriteriaProduct criteriaProduct, Model model) {
 //        criteriaProduct = new CriteriaProduct(criteriaProduct.getPageNum(), criteriaProduct.getAmount());
 //        model.addAttribute("deliveryList", productService.getDeliveryList(criteriaProduct));
@@ -202,9 +203,9 @@ public class ProductController {
 //        model.addAttribute("getDeliveryTotal",productService.getDeliveryTotal(criteriaProduct));
 //    }
     @GetMapping("/proAddressListPickup")
-    public void proAddressListPickup(CriteriaProduct criteriaProduct, String type,String sido,String sigungu,String dong, Model model)throws Exception {
+    public void proAddressListPickup(CriteriaProduct criteriaProduct, String type, String sido, String sigungu, String dong, Model model) throws Exception {
         criteriaProduct = new CriteriaProduct(criteriaProduct.getPageNum(), criteriaProduct.getAmount());
-        String sellProductAddress = sido+" "+sigungu+" "+dong;
+        String sellProductAddress = sido + " " + sigungu + " " + dong;
 
         log.info(sellProductAddress);
 
@@ -249,7 +250,7 @@ public class ProductController {
         map.put("type", typeList);
         map.put("sellProductAddress", sellProductAddress);
 
-        log.info("맵 확인-------------------"+String.valueOf(map));
+        log.info("맵 확인-------------------" + String.valueOf(map));
 
 
         model.addAttribute("check", check);
@@ -265,7 +266,7 @@ public class ProductController {
 //    }
 
     @GetMapping("/proDetail")
-    public void proDetail(Long sellProductNum, Model model, CriteriaProduct criteriaProduct, HttpServletRequest request){
+    public void proDetail(Long sellProductNum, Model model, CriteriaProduct criteriaProduct, HttpServletRequest request) {
         log.info("productDetail실행");
         criteriaProduct = new CriteriaProduct(criteriaProduct.getPageNum(), criteriaProduct.getAmount());
 
@@ -280,7 +281,7 @@ public class ProductController {
     }
 
     @GetMapping("/proNew")
-    public void list(CriteriaProduct criteriaProduct, String type, Model model)throws Exception {
+    public void list(CriteriaProduct criteriaProduct, String type, Model model) throws Exception {
         criteriaProduct = new CriteriaProduct(criteriaProduct.getPageNum(), criteriaProduct.getAmount());
         log.info("~!~!~!~!~!~!~!~!~!~!~!~!프로뉴들어옴------------------------------------------------------------------------------------");
         log.info("/pos/getList실행");
@@ -290,7 +291,7 @@ public class ProductController {
         String status2 = null;
         String status3 = "true";
         String check = null;
-        log.info("비교 들어가기전---------"+type);
+        log.info("비교 들어가기전---------" + type);
         log.info(type);
         if (type != null) {
             status3 = null;
@@ -308,15 +309,15 @@ public class ProductController {
             }
         }
 
-        log.info("비교 들어간후---------"+type);
+        log.info("비교 들어간후---------" + type);
         HashMap<String, String> typeList = new HashMap<>();
         typeList.put("status1", status1);
         typeList.put("status2", status2);
         typeList.put("status3", status3);
 
-        log.info("상태1" +status1 + "-----------");
-        log.info("상태2" +status2 + "-----------");
-        log.info("상태3" +status3 + "-----------");
+        log.info("상태1" + status1 + "-----------");
+        log.info("상태2" + status2 + "-----------");
+        log.info("상태3" + status3 + "-----------");
 
 
         HashMap<String, Object> map = new HashMap<>();
@@ -327,11 +328,11 @@ public class ProductController {
         model.addAttribute("check", check);
         model.addAttribute("list", productService.getList(map));
         model.addAttribute("ProductPageDTO", new ProductPageDTO(criteriaProduct, productService.getTotal(criteriaProduct)));
-        model.addAttribute("getTotal",productService.getTotal(criteriaProduct));
+        model.addAttribute("getTotal", productService.getTotal(criteriaProduct));
     }
 
     @GetMapping("/proPickup")
-    public void proPickup(CriteriaProduct criteriaProduct, String type, Model model)throws Exception {
+    public void proPickup(CriteriaProduct criteriaProduct, String type, Model model) throws Exception {
         criteriaProduct = new CriteriaProduct(criteriaProduct.getPageNum(), criteriaProduct.getAmount());
 
         log.info("/pos/getList실행");
@@ -389,7 +390,7 @@ public class ProductController {
 //    }
 
     @GetMapping("/proShipping")
-    public void proShipping(CriteriaProduct criteriaProduct, String type, Model model)throws Exception {
+    public void proShipping(CriteriaProduct criteriaProduct, String type, Model model) throws Exception {
         criteriaProduct = new CriteriaProduct(criteriaProduct.getPageNum(), criteriaProduct.getAmount());
 
         log.info("/pos/getList실행");
@@ -444,43 +445,46 @@ public class ProductController {
     public RedirectView productToBasketNew(ProductVO productVO, BasketVO basketVO, HttpServletRequest request) {
         HttpSession session = request.getSession();
         Long userNum = Long.valueOf(String.valueOf(session.getAttribute("userNumber")));
-        productService.productToBasket(userNum,basketVO,productVO);
+        productService.productToBasket(userNum, basketVO, productVO);
 
-        productService.productToBasket(userNum,basketVO,productVO);
+        productService.productToBasket(userNum, basketVO, productVO);
         return new RedirectView("proNew");
     }
+
     @PostMapping("/productToBasketPickup")
-    public RedirectView productToBasketPickup(ProductVO productVO,BasketVO basketVO,HttpServletRequest request) {
+    public RedirectView productToBasketPickup(ProductVO productVO, BasketVO basketVO, HttpServletRequest request) {
         HttpSession session = request.getSession();
         Long userNum = Long.valueOf(String.valueOf(session.getAttribute("userNumber")));
 
-        productService.productToBasket(userNum,basketVO,productVO);
+        productService.productToBasket(userNum, basketVO, productVO);
         return new RedirectView("proPickup");
     }
+
     @PostMapping("/productToBasketShipping")
     public RedirectView productToBasketShipping(ProductVO productVO, BasketVO basketVO, HttpServletRequest request) {
         HttpSession session = request.getSession();
         Long userNum = Long.valueOf(String.valueOf(session.getAttribute("userNumber")));
 
-        productService.productToBasket(userNum,basketVO,productVO);
+        productService.productToBasket(userNum, basketVO, productVO);
         return new RedirectView("proShipping");
     }
 
     @PostMapping("/productToBasketShippingDetail")
-    public void productToBasketShippingDetail(ProductVO productVO,BasketVO basketVO,HttpServletRequest request) {
-    Long productNum=productVO.getSellProductNum();
+    public void productToBasketShippingDetail(ProductVO productVO, BasketVO basketVO, HttpServletRequest request) {
+        Long productNum = productVO.getSellProductNum();
 
         HttpSession session = request.getSession();
         Long userNum = Long.valueOf(String.valueOf(session.getAttribute("userNumber")));
 
-        productService.productToBasket(userNum,basketVO,productVO);
+        productService.productToBasket(userNum, basketVO, productVO);
     }
+
     //    private final ProductService productService;
     @RequestMapping("/productToBasket")
-    public RedirectView productToBasket(Long sellProductDiscountPrice, Long sellProductNum,String basketDeliveryMethod,Long basketQuantity,
+    public RedirectView productToBasket(Long sellProductDiscountPrice, Long sellProductNum, String basketDeliveryMethod, Long basketQuantity,
                                         HttpServletRequest request) {
-        BasketVO basketVO=new BasketVO();
-        ProductVO productVO=new ProductVO();
+        BasketVO basketVO = new BasketVO();
+        ProductVO productVO = new ProductVO();
         basketVO.setBasketPrice(sellProductDiscountPrice);
         productVO.setSellProductNum(sellProductNum);
         basketVO.setBasketDeliveryMethod(basketDeliveryMethod);
