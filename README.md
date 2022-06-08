@@ -3,7 +3,13 @@
 lastFresh
 
 skill
+
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/리액트-61DAFB?style=flat&logo=React&logoColor=white"/>
+
 
 ## 메인 페이지
 ![메인페이지 ](https://user-images.githubusercontent.com/104404205/172530700-40483bea-1602-4cda-b0dc-746cf1be4de2.png)
