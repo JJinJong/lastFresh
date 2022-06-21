@@ -6,12 +6,12 @@ lastFresh
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=flat&logo=java&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E) ![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=flat&logo=jquery&logoColor=white) ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?style=flat&logo=Thymeleaf&logoColor=white) ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=flat&logo=spring&logoColor=white) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=flat&logo=apache&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=flat&logo=mysql&logoColor=white)  
 
 ---
-담당 업무
--판매자 페이지
-  -판매내역 페이지
-  -상품 등록, 수정, 삭제 페이징 처리 (JPA 활용)
--포스 페이지
-  -Rest API를 활용하여 접수대기/처리중/완료 구현
+담당 업무  
+-판매자 페이지  
+  -판매내역 페이지  
+  -상품 등록, 수정, 삭제 페이징 처리 (JPA 활용)  
+-포스 페이지  
+  -Rest API를 활용하여 접수대기/처리중/완료 구현  
 
 ## 메인 페이지
 ![메인페이지 ](https://user-images.githubusercontent.com/104404205/172530700-40483bea-1602-4cda-b0dc-746cf1be4de2.png)
